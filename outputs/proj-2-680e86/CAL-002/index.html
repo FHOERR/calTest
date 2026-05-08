@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简洁计算器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-card">
+            <div class="display-section">
+                <div class="display-previous">
+                    <span id="previousOperand"></span>
+                    <span id="operation"></span>
+                </div>
+                <div class="display-main" id="mainDisplay">0</div>
+            </div>
+
+            <div class="button-grid">
+                <!-- Row 1: AC, DEL, /, * -->
+                <button class="btn btn-function" data-action="clear">AC</button>
+                <button class="btn btn-function" data-action="delete">DEL</button>
+                <button class="btn btn-operator" data-operator="/">÷</button>
+                <button class="btn btn-operator" data-operator="/">×</button>
+
+                <!-- Row 2: 7, 8, 9, - -->
+                <button class="btn btn-number" data-number="7">7</button>
+                <button class="btn btn-number" data-number="8">8</button>
+                <button class="btn btn-number" data-number="9">9</button>
+                <button class="btn btn-operator" data-operator="-">−</button>
+
+                <!-- Row 3: 4, 5, 6, + -->
+                <button class="btn btn-number" data-number="4">4</button>
+                <button class="btn btn-number" data-number="5">5</button>
+                <button class="btn btn-number" data-number="6">6</button>
+                <button class="btn btn-operator" data-operator="+">+</button>
+
+                <!-- Row 4: 1, 2, 3, = -->
+                <button class="btn btn-number" data-number="1">1</button>
+                <button class="btn btn-number" data-number="2">2</button>
+                <button class="btn btn-number" data-number="3">3</button>
+                <button class="btn btn-equals" data-action="equals">=</button>
+
+                <!-- Row 5: 0 (span-2), ., = -->
+                <button class="btn btn-number btn-zero-span" data-number="0">0</button>
+                <button class="btn btn-number" data-number=".">.</button>
+                <button class="btn btn-equals" data-action="equals">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

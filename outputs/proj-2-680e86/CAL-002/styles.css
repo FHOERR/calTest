@@ -1,0 +1,298 @@
+/* ==================== 全局样式 ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+/* ==================== 容器布局 ==================== */
+.calculator-container {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15),
+                0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+}
+
+/* ==================== 显示区域 ==================== */
+.display-section {
+    margin-bottom: 24px;
+    text-align: right;
+}
+
+.display-previous {
+    height: 24px;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 8px;
+    min-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+.display-previous span {
+    margin-right: 4px;
+}
+
+.display-main {
+    font-size: 48px;
+    font-weight: 500;
+    color: #1a1a1a;
+    word-break: break-all;
+    word-wrap: break-word;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+/* 错误态 */
+.display-main.error {
+    color: #e74c3c;
+    font-size: 32px;
+}
+
+/* ==================== 按钮网格 ==================== */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* ==================== 按钮基础样式 ==================== */
+.btn {
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    user-select: none;
+    touch-action: manipulation;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    position: relative;
+}
+
+/* 按钮聚焦状态（无边框） */
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ==================== 按钮类型 ==================== */
+
+/* 数字按钮 */
+.btn-number {
+    background-color: #f5f7fa;
+    color: #1a1a1a;
+    border: 1px solid #e8eef4;
+}
+
+.btn-number:hover {
+    background-color: #eff2f7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-number:active {
+    background-color: #e0e5ed;
+    transform: scale(0.96);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* 运算符按钮 */
+.btn-operator {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-operator:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.btn-operator:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* 等号按钮 */
+.btn-equals {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+}
+
+.btn-equals:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(245, 87, 108, 0.4);
+}
+
+.btn-equals:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(245, 87, 108, 0.3);
+}
+
+/* 功能按钮 (AC, DEL) */
+.btn-function {
+    background-color: #ff6b6b;
+    color: white;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25);
+}
+
+.btn-function:hover {
+    background-color: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.35);
+}
+
+.btn-function:active {
+    background-color: #ee5a52;
+    transform: scale(0.96);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.25);
+}
+
+/* ==================== 特殊布局 ==================== */
+
+/* 0 键双列占位 */
+.btn-zero-span {
+    grid-column: span 2;
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 480px) {
+    .calculator-card {
+        padding: 16px;
+    }
+
+    .btn {
+        min-height: 48px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .display-main {
+        font-size: 40px;
+        min-height: 52px;
+    }
+
+    .button-grid {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .calculator-card {
+        padding: 12px;
+    }
+
+    .btn {
+        min-height: 44px;
+        padding: 8px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .display-main {
+        font-size: 32px;
+        min-height: 44px;
+    }
+
+    .display-previous {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .button-grid {
+        gap: 8px;
+    }
+}
+
+/* ==================== 键盘焦点辅助 ==================== */
+.btn:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* ==================== 深色模式支持（可选增强） ==================== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    .calculator-card {
+        background: #0f3460;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5),
+                    0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .display-main {
+        color: #e0e0e0;
+    }
+
+    .display-previous {
+        color: #999;
+    }
+
+    .btn-number {
+        background-color: #1a1a2e;
+        color: #e0e0e0;
+        border-color: #333;
+    }
+
+    .btn-number:hover {
+        background-color: #252540;
+    }
+
+    .btn-number:active {
+        background-color: #333;
+    }
+}
+
+/* ==================== 打印样式（支持打印） ==================== */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .calculator-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        border: 1px solid #999;
+    }
+}
