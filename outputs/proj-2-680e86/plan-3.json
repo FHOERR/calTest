@@ -1,0 +1,43 @@
+{
+  "plan_name": "简单美观计算器开发计划（均衡分工）",
+  "tasks": [
+    {
+      "task_code": "CAL-001",
+      "task_name": "需求与交互方案收敛",
+      "description": "明确简单美观计算器的范围（基础四则运算、清空、删除、结果展示）、按钮布局、视觉风格基线与交互细节（键盘输入、错误态提示），产出可直接落地的实现约束。",
+      "assignee": "claude-max",
+      "depends_on": [],
+      "expected_output": "一份可执行的功能与UI交互规格，包含组件清单、状态规则和边界行为定义。"
+    },
+    {
+      "task_code": "CAL-002",
+      "task_name": "前端界面与样式实现",
+      "description": "基于已收敛方案实现计算器页面结构与样式，完成响应式布局、按钮层级、显示区排版及基础动效，保证整体简洁、美观、可读。",
+      "assignee": "codex-pro",
+      "depends_on": [
+        "CAL-001"
+      ],
+      "expected_output": "可运行的计算器UI页面代码（HTML/CSS），在常见桌面与移动宽度下视觉一致。"
+    },
+    {
+      "task_code": "CAL-003",
+      "task_name": "计算逻辑与交互联动实现",
+      "description": "实现计算器核心逻辑与事件处理（数字输入、运算符、连续计算、清空/删除、异常输入处理），并与界面状态联动，确保结果正确与交互流畅。",
+      "assignee": "codex-pro",
+      "depends_on": [
+        "CAL-002"
+      ],
+      "expected_output": "完整可用的计算器功能代码（JavaScript），覆盖主要边界场景并可直接使用。"
+    },
+    {
+      "task_code": "CAL-004",
+      "task_name": "质量审查与交付说明",
+      "description": "对实现结果进行严格代码与交互审查，聚焦潜在逻辑缺陷、可维护性与一致性，并给出必要修正建议与最终交付说明。",
+      "assignee": "claude-max",
+      "depends_on": [
+        "CAL-003"
+      ],
+      "expected_output": "审查结论与交付说明，明确已达成能力、已识别风险与建议修正项。"
+    }
+  ]
+}
