@@ -1,0 +1,8 @@
+{
+  "task_code": "CAL-001",
+  "summary": "已完成简单美观计算器的需求与交互方案收敛，明确了功能范围、交互规则、键盘映射、错误态处理、视觉风格基线与按钮布局约束，可直接指导后续 UI 与逻辑实现。",
+  "artifacts": [
+    "outputs/proj-2-680e86/CAL-001/specification.json",
+    "outputs/proj-2-680e86/CAL-001/button-layout.json"
+  ]
+}

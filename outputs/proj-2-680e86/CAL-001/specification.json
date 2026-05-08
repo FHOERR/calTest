@@ -1,0 +1,96 @@
+{
+  "task_code": "CAL-001",
+  "project": "计算器生成",
+  "version": "1.0",
+  "scope": {
+    "in_scope": [
+      "基础四则运算：+、-、*、/",
+      "数字输入：0-9 与小数点",
+      "清空（AC）与删除（DEL）",
+      "结果展示与连续计算",
+      "键盘输入支持与可视化反馈",
+      "错误态提示（如除以 0）"
+    ],
+    "out_of_scope": [
+      "科学计算功能（幂、三角、括号表达式）",
+      "历史记录与持久化存储",
+      "多主题切换与国际化"
+    ]
+  },
+  "interaction_rules": {
+    "display": {
+      "primary": "当前输入或计算结果",
+      "secondary": "可选展示上一操作数与运算符（轻量提示，不影响主显示）",
+      "format": "默认最多展示 12 位有效字符，超出采用科学计数法"
+    },
+    "input_flow": [
+      "数字键：追加到当前操作数",
+      "小数点：每个操作数最多一个，首位输入小数点时显示为 0.",
+      "运算符：保存当前数值与运算符，等待下一个操作数",
+      "等号：执行运算并显示结果，可继续按运算符进入连续计算",
+      "AC：重置全部状态",
+      "DEL：删除当前输入最后一位；若为空保持 0"
+    ],
+    "continuous_calculation": "在得到结果后，直接按运算符会以当前结果作为左操作数继续计算。",
+    "replacement_behavior": "连续点击不同运算符时，以最后一次运算符为准，不追加新操作数。"
+  },
+  "keyboard_mapping": {
+    "digits": "0-9",
+    "operators": {
+      "+": "+",
+      "-": "-",
+      "*": "*",
+      "/": "/"
+    },
+    "decimal_point": ".",
+    "equals": [
+      "Enter",
+      "="
+    ],
+    "clear": [
+      "Escape",
+      "c",
+      "C"
+    ],
+    "delete": "Backspace"
+  },
+  "error_handling": {
+    "divide_by_zero": {
+      "display": "Error",
+      "behavior": "锁定为错误态，仅允许 AC 清空后继续"
+    },
+    "invalid_sequence": {
+      "example": "开头输入运算符（- 作为负号除外）",
+      "behavior": "忽略非法输入并保持当前状态"
+    }
+  },
+  "visual_baseline": {
+    "style_keywords": [
+      "简洁",
+      "现代",
+      "柔和阴影",
+      "高对比可读性"
+    ],
+    "layout": {
+      "container": "卡片式居中布局",
+      "button_grid": "4 列规则网格，常规按钮统一尺寸，等号或 AC 可占双列",
+      "responsive": "移动端宽度 320px 起可用，桌面端最大宽度建议 360-420px"
+    },
+    "color_and_typography": {
+      "background": "浅色或低饱和渐变背景",
+      "primary_text": "深色高对比",
+      "accent": "运算符与等号使用强调色",
+      "font": "无衬线字体，数字显示区字号显著高于按钮文案"
+    },
+    "motion_feedback": {
+      "button_press": "100-150ms 轻微缩放/亮度变化",
+      "focus": "键盘焦点需可见，满足可访问性"
+    }
+  },
+  "implementation_constraints": [
+    "功能与样式解耦：计算逻辑与 UI 结构分离",
+    "所有交互在单页内完成，不依赖后端服务",
+    "对关键状态（输入中、已得结果、错误态）做显式管理",
+    "保证键盘与鼠标行为一致"
+  ]
+}
